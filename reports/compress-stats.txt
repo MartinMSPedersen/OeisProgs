@@ -1,0 +1,41 @@
+$ time xz --keep b000001-b321800.tar
+
+real	197m6.429s
+user	196m7.350s
+sys	0m32.020s
+
+$ time gzip --keep b000001-b321800.tar
+
+real	18m32.684s
+user	16m51.940s
+sys	0m12.044s
+
+$ time bzip2 --keep b000001-b321800.tar 
+
+real	22m38.687s
+user	20m30.668s
+sys	0m10.189s
+
+-rw-rw-r-- 1 tusk tusk 17018757120 Dec 15 01:35 b000001-b321800.tar
+-rw-rw-r-- 1 tusk tusk  6889120653 Dec 15 01:35 b000001-b321800.tar.bz2
+-rw-rw-r-- 1 tusk tusk  7221344757 Dec 15 01:35 b000001-b321800.tar.gz
+-rw-rw-r-- 1 tusk tusk  5511692644 Dec 15 01:35 b000001-b321800.tar.xz
+
+$ time zcat b000001-b321800.tar.gz >/dev/null
+
+real	1m36.638s
+user	1m34.148s
+sys	0m2.113s
+
+$ time xzcat b000001-b321800.tar.xz >/dev/null
+
+real	4m33.938s
+user	4m31.809s
+sys	0m2.076s
+
+$ time bzcat b000001-b321800.tar.bz2 >/dev/null
+
+real	10m11.027s
+user	10m4.175s
+sys	0m5.752s
+
