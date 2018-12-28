@@ -1,3 +1,13 @@
-afile <- "~/oeis/afiles/stripped"
-afile <- readLines(afile)
-afile <- afile[grep("^A",afile)]
+library(readr)
+library(tidyverse)
+library(magrittr)
+library(reshape2)
+
+stripped <- read_csv("~/oeis/afiles/stripped", 
+                     col_names = FALSE, comment = "#")
+stripped %<>% 
+  melt %>%
+  arrange(X1,variable)
+
+glimpse(stripped)
+
